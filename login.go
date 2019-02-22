@@ -59,12 +59,12 @@ func Login(o *Options) error {
 	fmt.Println(auth0Token)
 
 	// Exchange the Auth0 token for a DC/OS token
-	dcosToken, err := client.finishLogin(*o.ClusterURL, auth0Token)
+	/*dcosToken, err := client.finishLogin(*o.ClusterURL, auth0Token)
 	if err != nil {
 		return err
 	}
 
-	fmt.Println(dcosToken)
+	fmt.Println(dcosToken)*/
 
 	return nil
 }
@@ -203,8 +203,7 @@ func (c *client) githubAuthenticate(csrfToken, username, password string) (strin
 
 func (c *client) finishLogin(clusterURL, auth0Token string) (string, error) {
 	res, err := c.PostJSON(clusterURL+"/acs/api/v1/auth/login", map[string]string{
-		//"token": auth0Token,
-		"uid": "contact@blueci.io",
+		"token": auth0Token,
 	})
 	if err != nil {
 		return "", err

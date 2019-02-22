@@ -1,7 +1,7 @@
 package main
 
 import (
-	dcoslogin "github.com/Originate/dcos-login"
+	dcoslogin "github.com/blueci-io/dcos-login"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
 
